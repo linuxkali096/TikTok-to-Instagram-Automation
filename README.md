@@ -105,12 +105,12 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     Start["Incoming Video Topic & TikTok Tags"] --> Tier1{"Provider 1: Groq Cloud API<br/>(qwen/qwen3.8-27b / gpt-oss-120b)"}
-    Tier1 -->|HTTP 200 OK (~600ms)| Success["Format Caption + 8-12 Hashtags"]
-    Tier1 -->|Rate Limit / 404 / Error| Tier2{"Provider 2: Google Gemini API<br/>(gemini-3.5-flash / gemini-3.8-flash)"}
-    Tier2 -->|HTTP 200 OK| Success
-    Tier2 -->|Demand Spike / 503 / Error| Tier3{"Provider 3: Zero-Key Fallback<br/>(Pollinations Text API)"}
-    Tier3 -->|HTTP 200 OK| Success
-    Tier3 -->|Timeout / Offline| Tier4["Tier 4: Smart Topic Metadata Generator<br/>(Local Genre Detection & Tag Expansion)"]
+    Tier1 -->|"HTTP 200 OK (~600ms)"| Success["Format Caption + 8-12 Hashtags"]
+    Tier1 -->|"Rate Limit / 404 / Error"| Tier2{"Provider 2: Google Gemini API<br/>(gemini-3.5-flash / gemini-3.8-flash)"}
+    Tier2 -->|"HTTP 200 OK"| Success
+    Tier2 -->|"Demand Spike / 503 / Error"| Tier3{"Provider 3: Zero-Key Fallback<br/>(Pollinations Text API)"}
+    Tier3 -->|"HTTP 200 OK"| Success
+    Tier3 -->|"Timeout / Offline"| Tier4["Tier 4: Smart Topic Metadata Generator<br/>(Local Genre Detection & Tag Expansion)"]
     Tier4 --> Success
     Success --> Disclaimer["Append Creator Credit & Fair-Use Disclaimer"]
     Disclaimer --> Output["Ready for Telegram Preview & Buffer"]
