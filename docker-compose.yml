@@ -1,0 +1,22 @@
+# =============================================================================
+# ReelsBot Docker Compose Service Definition
+# =============================================================================
+
+version: '3.8'
+
+services:
+  reels-bot:
+    build: .
+    container_name: reels_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./downloads:/app/downloads
+      - ./reels_bot.db:/app/reels_bot.db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+

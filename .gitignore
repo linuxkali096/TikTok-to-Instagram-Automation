@@ -1,0 +1,59 @@
+# =============================================================================
+# Git Ignore Configuration for ReelsBot
+# =============================================================================
+
+# Environment credentials & secrets (NEVER COMMIT!)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+
+# Python bytecode & caching
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Databases & SQLite files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files & diagnostics
+*.log
+logs/
+
+# Downloaded videos and temporary media
+downloads/*
+!downloads/.gitkeep
+
+# IDE and Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agent metadata
+.agent/
+.agents/
+

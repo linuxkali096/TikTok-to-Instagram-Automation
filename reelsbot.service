@@ -1,0 +1,18 @@
+[Unit]
+Description=ReelsBot TikTok to Instagram Reel Generator Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/reels
+ExecStart=/root/reels/.venv/bin/python3 /root/reels/reels_bot.py
+Restart=always
+RestartSec=10
+EnvironmentFile=/root/reels/.env
+StandardOutput=append:/root/reels/reels_bot.log
+StandardError=append:/root/reels/reels_bot.log
+
+[Install]
+WantedBy=multi-user.target
+
